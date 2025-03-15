@@ -1,0 +1,279 @@
+version: "3.8"
+
+services:
+  user-service-1:
+    build: ./user-service
+    container_name: user-service-1
+    env_file:
+      - ./user-service/.env
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+    networks:
+      - food-recipe-network
+
+  user-service-2:
+    build: ./user-service
+    container_name: user-service-2
+    env_file:
+      - ./user-service/.env
+    environment:
+      - PORT=3001
+      - MONGO_URI=mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+    networks:
+      - food-recipe-network
+
+  user-service-3:
+    build: ./user-service
+    container_name: user-service-3
+    env_file:
+      - ./user-service/.env
+    environment:
+      - PORT=3002
+      - MONGO_URI=mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+    networks:
+      - food-recipe-network 
+  
+  food-service-1:
+    build: ./food-service
+    container_name: food-service-1
+    env_file:
+      - ./food-service/.env
+    environment:
+      - PORT=4000
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  food-service-2:
+    build: ./food-service
+    container_name: food-service-2
+    env_file:
+      - ./food-service/.env
+    environment:
+      - PORT=4001
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  food-service-3:
+    build: ./food-service
+    container_name: food-service-3
+    env_file:
+      - ./food-service/.env
+    environment:
+      - PORT=4002
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  like-service-1:
+    build: ./like-service
+    container_name: like-service-1
+    env_file:
+      - ./like-service/.env
+    environment:
+      - PORT=5000
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  like-service-2:
+    build: ./like-service
+    container_name: like-service-2
+    env_file:
+      - ./like-service/.env
+    environment:
+      - PORT=5001
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  like-service-3:
+    build: ./like-service
+    container_name: like-service-3
+    env_file:
+      - ./like-service/.env
+    environment:
+      - PORT=5002
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+  
+  rating-service-1:
+    build: ./rating-service
+    container_name: rating-service-1
+    env_file:
+      - ./rating-service/.env
+    environment:
+      - PORT=6001
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  rating-service-2:
+    build: ./rating-service
+    container_name: rating-service-2
+    env_file:
+      - ./rating-service/.env
+    environment:
+      - PORT=6002
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  rating-service-3:
+    build: ./rating-service
+    container_name: rating-service-3
+    env_file:
+      - ./rating-service/.env
+    environment:
+      - PORT=6003
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  comment-service-1:
+    build: ./comment-service
+    container_name: comment-service-1
+    env_file:
+      - ./comment-service/.env
+    environment:
+      - PORT=7000
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  comment-service-2:
+    build: ./comment-service
+    container_name: comment-service-2
+    env_file:
+      - ./comment-service/.env
+    environment:
+      - PORT=7001
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  comment-service-3:
+    build: ./comment-service
+    container_name: comment-service-3
+    env_file:
+      - ./comment-service/.env
+    environment:
+      - PORT=7002
+      - MONGO_URI="mongodb+srv://namekung95115999:ok15031503@foodrecipe.roc8o.mongodb.net/FoodRecipe"
+      - REDIS_URL=redis://redis:6379
+    restart: always
+    depends_on:
+      - redis
+      
+    networks:
+      - food-recipe-network
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - food-recipe-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - user-service-1
+      - user-service-2
+      - user-service-3
+      - food-service-1
+      - food-service-2
+      - food-service-3
+      - like-service-1
+      - like-service-2
+      - like-service-3
+      - rating-service-1
+      - rating-service-2
+      - rating-service-3
+      - comment-service-1
+      - comment-service-2
+      - comment-service-3
+    restart: always
+    networks:
+      - food-recipe-network
+
+networks:
+  food-recipe-network:
+    driver: bridge
