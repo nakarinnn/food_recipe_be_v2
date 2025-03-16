@@ -18,6 +18,8 @@ export const createRating = async (foodId: string, userId: string, rating: numbe
     await redis.del(`foodsByType:main-dish`);
     await redis.del(`foodsByType:dessert`);
     await redis.del(`foodsByType:drink`);
+    await redis.del(`favoriteMenu:${userId}`);
+
 
     const existingRating = await Rating.findOne({ foodId, userId });
 
